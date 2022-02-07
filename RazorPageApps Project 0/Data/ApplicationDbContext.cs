@@ -30,4 +30,5 @@ public class ApplicationDbContext: DbContext
     // the EFC we can add whatever table models we'd like below
 
     public DbSet<Category> NameOfTableCategory { get; set; }
+    public IEnumerable<Category> Category { get; internal set; }
 }
