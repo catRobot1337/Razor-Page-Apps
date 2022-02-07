@@ -18,6 +18,14 @@ namespace RazorPageApps_Project_0.Data;
 
 public class ApplicationDbContext: DbContext
 {
+    // Retrieves DbContextOptions on/from ApplicationDbContext and call it as options
+    // then pass it on to the base class of DbContext.
+    // This line of code is needed to make our app/efc/db connection to work.
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+
+    }
+
     // Once we've properly implemented the db context clause inside
     // the EFC we can add whatever table models we'd like below
 
