@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RazorPageApps_Project_0.Model;
 
 namespace RazorPageApps_Project_0.Data;
 
@@ -19,4 +20,6 @@ public class ApplicationDbContext: DbContext
 {
     // Once we've properly implemented the db context clause inside
     // the EFC we can add whatever table models we'd like below
+
+    public DbSet<Category> NameOfTableCategory { get; set; }
 }
