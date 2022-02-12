@@ -30,3 +30,4 @@ public class IndexModel : PageModel
         Categories = _db.Category; // 4c. Populate Categories from the database
     }
 }
+//Thanks migrations!
