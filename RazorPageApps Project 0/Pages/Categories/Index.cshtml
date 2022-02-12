@@ -2,3 +2,49 @@
 @model RazorPageApps_Project_0.Pages.Categories.IndexModel
 @{
 }
+
+@*Adding the ability to display all categories from the NameOfTableCategory table in our db*@
+<div class="container p-3"> @*adding container where we can add a row*@
+    
+    @*Creating header section*@
+    <div class="row pt-4"> @*adding one row on the complete screen so we can divide it up*@
+        <div class="col-6">
+            <h2 class="text-primary">Category List</h2>
+        </div>
+        <div class="col-6">
+            
+        </div>
+    </div>
+
+    <br /><br />
+
+    @*Creating table section*@
+    <table class="table table-bordered table-striped" style="width:100%">
+
+        @*Table header*@
+        <thead>
+            <tr>
+                <th>
+                    Category Name
+                </th>
+                <th>
+                    Display Order
+                </th>
+            </tr>
+        </thead>
+
+        @*Table body*@
+        <tbody>
+            @*per syntax must use capitalized Model to invoke Line 2 Categories.IndexModel. then set each category inside Model.Categories will have a temp name of obj*@
+            @foreach(var obj in Model.Categories)
+            {
+                <tr>
+                    <td width="50%">@obj.Name</td> @*VALUE OF CATEGORY NAME*@
+                    <td width="30%">@obj.DisplayOrder</td> @*VALUE OF DISPLAY ORDER*@
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</div>
