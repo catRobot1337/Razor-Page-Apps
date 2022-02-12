@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPageApps_Project_0.Data;
 using RazorPageApps_Project_0.Model;
 
-// testing repo push
-
 namespace RazorPageApps_Project_0.Pages.Categories;
 
 public class IndexModel : PageModel
@@ -29,7 +27,6 @@ public class IndexModel : PageModel
 
     public void OnGet() // 4. Retrieve a list of all categories
     {
-        Categories = _db.Category; // 4c. Populate Categories from the database
+        Categories = _db.NameOfTableCategory; // 4c. Populate local var Categories from the database table NameOfTableCategory
     }
 }
-//Thanks migrations!
