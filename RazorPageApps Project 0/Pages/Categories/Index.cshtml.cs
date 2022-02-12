@@ -30,3 +30,5 @@ public class IndexModel : PageModel
         Categories = _db.NameOfTableCategory; // 4c. Populate local var Categories from the database table NameOfTableCategory
     }
 }
+
+//Yet another test
