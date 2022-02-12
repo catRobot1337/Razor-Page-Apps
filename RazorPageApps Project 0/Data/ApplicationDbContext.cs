@@ -32,3 +32,5 @@ public class ApplicationDbContext: DbContext
     public DbSet<Category> NameOfTableCategory { get; set; }
     public IEnumerable<Category> Category { get; internal set; }
 }
+
+// Another test
