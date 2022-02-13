@@ -28,8 +28,12 @@ public class CreateModel : PageModel
     // IActionResult returns to some page or redirects to a view
     public async Task<IActionResult> OnPost()
     {
-        _db.AddAsync(Category);
-        _db.SaveChanges();
-        return RedirectToPage("Index");
+        if (ModelState.IsValid) // Server side checks if ModelState IsValid and only then does it add/write and save to the model in the db.
+        {
+            _db.AddAsync(Category);
+            _db.SaveChanges();
+            return RedirectToPage("Index");
+        }
+        return Page(); // If not valid, return the same page user is on.
     }
 }
