@@ -5,12 +5,12 @@ using RazorPageApps_Project_0.Model;
 
 namespace RazorPageApps_Project_0.Pages.Categories;
 
-public class CreateModel : PageModel
+public class EditModel : PageModel
 {
 
     private readonly ApplicationDbContext _db;
 
-    public CreateModel(ApplicationDbContext db)
+    public EditModel(ApplicationDbContext db) // Constructor
     {
         _db = db;
     }
@@ -18,8 +18,9 @@ public class CreateModel : PageModel
     [BindProperty] // Will bind Category object properties with the UI cshtml in asp-for and will populate inside the same 'Category' object
     public Category NameOfTableCategory { get; set; } // Model for Category. Get category object set it as 'Category'
 
-    public void OnGet()
+    public void OnGet(int id) // For Edit - added retreiving Category and pass to Edit view
     {
+        NameOfTableCategory = _db.NameOfTableCategory.SingleOrDefault(i => i.Id == id);
     }
 
     // In an MVC environment we would create an OnPost() action method.
@@ -34,7 +35,7 @@ public class CreateModel : PageModel
         }
         if (ModelState.IsValid) // Server side checks if ModelState IsValid and only then does it add/write and save to the model in the db.
         {
-            _db.Add(NameOfTableCategory);
+            _db.Update(NameOfTableCategory);
             _db.SaveChanges();
             return RedirectToPage("Index");
         }
