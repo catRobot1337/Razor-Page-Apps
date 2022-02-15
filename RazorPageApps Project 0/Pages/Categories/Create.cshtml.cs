@@ -28,9 +28,13 @@ public class CreateModel : PageModel
     // IActionResult returns to some page or redirects to a view
     public async Task<IActionResult> OnPost()
     {
+        if(Category.Name == Category.DisplayOrder.ToString()) // Custom server side validation checks specific condition prior to ModelState validation
+        {
+            ModelState.AddModelError("Category.Name", "The Display Order cannot be the same as the Name.");
+        }
         if (ModelState.IsValid) // Server side checks if ModelState IsValid and only then does it add/write and save to the model in the db.
         {
-            _db.AddAsync(Category);
+            _db.Add(Category);
             _db.SaveChanges();
             return RedirectToPage("Index");
         }
